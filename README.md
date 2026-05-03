@@ -97,12 +97,12 @@ pip install torch torchvision datasets gradio matplotlib seaborn scikit-learn nu
 
 
 ## 🚀 Training (Automated via Shell Scripts)
-We provide shell scripts under the scripts/ directory to easily reproduce all experiments and grid searches. Make sure to give execution permissions to the scripts if needed (chmod +x scripts/*.sh).
+We provide shell scripts under the `scripts/` directory to easily reproduce all experiments and grid searches. Make sure to give execution permissions to the scripts if needed (`chmod +x scripts/*.sh`).
 
 ### Model 1: Baseline (Control Group)
 Trains EfficientNet-V2-S from scratch without any enhancements.
-bash bash scripts/run_baseline.sh
-
+```bash
+bash scripts/run_baseline.sh
 ### Phase 1: Pretrained + Augmentation (No Weighted Loss)
 Runs 4 configurations isolating the effects of basic enhancements (transfer learning and data augmentation).
 bash bash scripts/run_phase1.sh 
