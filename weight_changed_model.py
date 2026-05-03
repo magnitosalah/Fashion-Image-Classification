@@ -40,7 +40,7 @@ def get_args():
     parser.add_argument("--optimizer", type=str, default="sgd")
     parser.add_argument("--data_dir", type=str, default="./data")
     parser.add_argument("--save_model", action="store_true", default=True) # 기본적으로 저장되도록 설정
-    parser.add_argument("--model_dir", type=str, default="./models") # 모델 저장 폴더
+    parser.add_argument("--model_path", type=str, default="./models/efficientnet_v2s_phase2.pth")
     return parser.parse_args()
 
 
@@ -357,13 +357,11 @@ def main():
     save_confusion_matrix(all_labels_arr, all_preds_arr, idx_to_label, exp_name)
 
     # ===== 모델 저장 (옵션) =====
-    if args.save_model:
-        os.makedirs(args.model_dir, exist_ok=True)
-        # 모델명도 하이퍼파라미터 기반으로 저장됩니다!
-        model_save_path = os.path.join(args.model_dir, f"model_{exp_name}.pth")
-        torch.save(model.state_dict(), model_save_path)
-        print(f"\nModel saved to: {model_save_path}")
 
+    if args.save_model:
+        os.makedirs(os.path.dirname(args.model_path) or ".", exist_ok=True)
+        torch.save(model.state_dict(), args.model_path)
+        print(f"\nModel saved to: {args.model_path}")
 
 if __name__ == "__main__":
     main()
