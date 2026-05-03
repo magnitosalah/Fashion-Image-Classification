@@ -109,11 +109,8 @@ bash bash scripts/run_phase1.sh
 
 ### Phase 2: Class-Weighted Loss Integration
 Runs the same 4 configurations as Phase 1, but with class-weighted loss applied to isolate its effect on resolving data imbalance.
-
-
-Bash
+```bash
 bash scripts/run_phase2.sh
-```
 
 ### Phase 3: Final Hyperparameter Optimization
 Runs the extended epochs (30) and learning rate grid search using the SGD optimizer. The `lr=5e-4` configuration produces the **Final Model (87.08%)** reported in the paper.
