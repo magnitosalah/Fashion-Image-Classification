@@ -1,0 +1,9 @@
+torch
+torchvision
+datasets
+gradio
+matplotlib
+seaborn
+scikit-learn
+numpy
+Pillow
